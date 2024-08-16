@@ -1,90 +1,112 @@
 ﻿Public Class Cuenta
+    ' Constante de descubierto máximo
+    Private Const DescMaximo As Integer = 50000
+
     ' Atributos privados de la clase
-    Private numero As Integer
-    Private nombre As String
-    Private tipo As String
-    Private descubierto As Decimal
-    Private saldo As Decimal
+    Private AP_Numero As Integer
+    Private AP_Nombre As String
+    Private AP_Tipo As String
+    Private AP_Saldo As Integer
+    Private AP_Descubierto As Integer
 
     ' Constructor de la clase
-    Public Sub New(ByVal numero As Integer, ByVal nombre As String, ByVal tipo As String, ByVal descubierto As Decimal)
-        Me.numero = numero
-        Me.nombre = nombre
-        Me.tipo = tipo
-        Me.descubierto = descubierto
-        Me.saldo = 0
+    Public Sub New(ByVal numero As Integer, ByVal nombre As String, ByVal tipo As String, ByVal descubierto As Integer)
+        Me.AP_Numero = numero
+        Me.AP_Nombre = nombre.Substring(0, Math.Min(nombre.Length, 15)) ' Limitar a 15 caracteres
+        Me.AP_Tipo = tipo
+
+        ' Validación del descubierto según el tipo de cuenta
+        If tipo = "CA" Then
+            Me.AP_Descubierto = 0
+        ElseIf tipo = "CC" Then
+            If descubierto > DescMaximo Then
+                Me.AP_Descubierto = DescMaximo
+            Else
+                Me.AP_Descubierto = descubierto
+            End If
+        Else
+            Throw New ArgumentException("Tipo de cuenta inválido. Solo se permite 'CC' o 'CA'.")
+        End If
+
+        Me.AP_Saldo = 0 ' Saldo inicial en 0
     End Sub
 
     ' Propiedades para acceder a los atributos
-    Public Property NumeroCuenta() As Integer
+    Public Property Numero() As Integer
         Get
-            Return numero
+            Return AP_Numero
         End Get
         Set(ByVal value As Integer)
-            numero = value
+            AP_Numero = value
         End Set
     End Property
 
-    Public Property NombreTitular() As String
+    Public Property Nombre() As String
         Get
-            Return nombre
+            Return AP_Nombre
         End Get
         Set(ByVal value As String)
-            nombre = value
+            AP_Nombre = Left(value, 15)
         End Set
     End Property
 
-    Public Property TipoCuenta() As String
+    Public Property Tipo() As String
         Get
-            Return tipo
+            Return AP_Tipo
         End Get
         Set(ByVal value As String)
-            tipo = value
+            AP_Tipo = value
         End Set
     End Property
 
-    Public Property DescubiertoPermitido() As Decimal
+    Public ReadOnly Property Saldo() As Integer
         Get
-            Return descubierto
+            Return AP_Saldo
         End Get
-        Set(ByVal value As Decimal)
-            descubierto = value
-        End Set
     End Property
 
-    Public ReadOnly Property SaldoActual() As Decimal
+    Public Property Descubierto() As Integer
         Get
-            Return saldo
+            Return AP_Descubierto
         End Get
+        Set(ByVal value As Integer)
+            If AP_Tipo = "CC" Then
+                AP_Descubierto = Math.Min(value, DescMaximo)
+            ElseIf AP_Tipo = "CA" Then
+                AP_Descubierto = 0
+            End If
+        End Set
     End Property
 
     ' Métodos de la clase
-    Public Sub Depositar(ByVal monto As Decimal)
-        If monto > 0 Then
-            saldo += monto
+    Public Sub Depositar(ByVal valor As Integer)
+        If valor > 0 Then
+            AP_Saldo += valor
         Else
-            Throw New ArgumentException("El monto a depositar debe ser positivo.")
+            Throw New ArgumentException("El valor a depositar debe ser positivo.")
         End If
     End Sub
 
-    Public Function Extraer(ByVal monto As Decimal) As Boolean
-        If monto > 0 Then
-            If saldo + descubierto >= monto Then
-                saldo -= monto
+    Public Function Extraer(ByVal valor As Integer) As Boolean
+        If valor > 0 Then
+            If AP_Saldo + AP_Descubierto >= valor Then
+                AP_Saldo -= valor
                 Return True
             Else
                 Return False
             End If
         Else
-            Throw New ArgumentException("El monto a extraer debe ser positivo.")
+            Throw New ArgumentException("El valor a extraer debe ser positivo.")
         End If
     End Function
 
-    Public Sub CerrarCuenta()
-        saldo = 0
-    End Sub
-
-    Public Overrides Function ToString() As String
-        Return $"Cuenta Nº: {numero}, Titular: {nombre}, Tipo: {tipo}, Saldo: {saldo:C}, Descubierto: {descubierto:C}"
+    ' Sobrecarga del método Extraer
+    Public Function Extraer() As Boolean
+        If AP_Saldo >= 0 Then
+            AP_Saldo = 0
+            Return True
+        Else
+            Return False
+        End If
     End Function
 End Class

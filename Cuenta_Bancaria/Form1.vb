@@ -10,6 +10,11 @@
 
             cuenta = New Cuenta(numero, nombre, tipo, descubierto)
             MessageBox.Show("Cuenta creada exitosamente.")
+            txtMonto.Enabled = True
+            btnExtraer.Enabled = True
+            btnDepositar.Enabled = True
+            btnCerrarCuenta.Enabled = True
+
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
@@ -19,7 +24,8 @@
         Try
             Dim monto As Integer = Integer.Parse(txtMonto.Text)
             cuenta.Depositar(monto)
-            MessageBox.Show("Depósito realizado exitosamente. Saldo actual: " & cuenta.SaldoActual)
+            MessageBox.Show("Depósito realizado exitosamente. Saldo actual: " & cuenta.Saldo)
+            lbl_saldo.Text = cuenta.Saldo.ToString("F2")
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
@@ -29,7 +35,8 @@
         Try
             Dim monto As Integer = Integer.Parse(txtMonto.Text)
             If cuenta.Extraer(monto) Then
-                MessageBox.Show("Extracción realizada exitosamente. Saldo actual: " & cuenta.SaldoActual)
+                MessageBox.Show("Extracción realizada exitosamente. Saldo actual: " & cuenta.Saldo)
+                lbl_saldo.Text = cuenta.Saldo.ToString("F2")
             Else
                 MessageBox.Show("Fondos insuficientes para la extracción.")
             End If
@@ -40,15 +47,25 @@
 
     Private Sub btnCerrarCuenta_Click(sender As Object, e As EventArgs) Handles btnCerrarCuenta.Click
         Try
-            ' Verificar si el saldo es mayor o igual a 0 antes de cerrar la cuenta
-            If cuenta.SaldoActual >= 0 Then
-                cuenta.CerrarCuenta()
+            If cuenta.Extraer() Then
                 MessageBox.Show("Cuenta cerrada exitosamente.")
+                Application.Exit() ' Cierra el programa al cerrar la cuenta
             Else
                 MessageBox.Show("No se puede cerrar la cuenta con saldo negativo.")
             End If
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtMonto.Enabled = False
+        btnExtraer.Enabled = False
+        btnDepositar.Enabled = False
+        btnCerrarCuenta.Enabled = False
+    End Sub
+
+    Private Sub txtMonto_TextChanged(sender As Object, e As EventArgs) Handles txtMonto.TextChanged
+
     End Sub
 End Class

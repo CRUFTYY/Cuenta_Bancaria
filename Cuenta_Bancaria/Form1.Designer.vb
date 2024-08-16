@@ -22,157 +22,204 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.txtNumero = New System.Windows.Forms.TextBox()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.txtTipo = New System.Windows.Forms.TextBox()
-        Me.txtDescubierto = New System.Windows.Forms.TextBox()
-        Me.txtMonto = New System.Windows.Forms.TextBox()
-        Me.lblNumero = New System.Windows.Forms.Label()
-        Me.lblNombre = New System.Windows.Forms.Label()
-        Me.lblTipo = New System.Windows.Forms.Label()
-        Me.lblDescubierto = New System.Windows.Forms.Label()
-        Me.lblMonto = New System.Windows.Forms.Label()
-        Me.btnAlta = New System.Windows.Forms.Button()
-        Me.btnDepositar = New System.Windows.Forms.Button()
-        Me.btnExtraer = New System.Windows.Forms.Button()
-        Me.btnCerrarCuenta = New System.Windows.Forms.Button()
-        Me.SuspendLayout()
+        txtNumero = New TextBox()
+        txtNombre = New TextBox()
+        txtTipo = New TextBox()
+        txtDescubierto = New TextBox()
+        txtMonto = New TextBox()
+        lblNumero = New Label()
+        lblNombre = New Label()
+        lblTipo = New Label()
+        lblDescubierto = New Label()
+        lblMonto = New Label()
+        btnAlta = New Button()
+        btnDepositar = New Button()
+        btnExtraer = New Button()
+        btnCerrarCuenta = New Button()
+        lbl_saldo = New Label()
+        Label1 = New Label()
+        SuspendLayout()
         ' 
         ' txtNumero
         ' 
-        Me.txtNumero.Location = New System.Drawing.Point(120, 20)
-        Me.txtNumero.Name = "txtNumero"
-        Me.txtNumero.Size = New System.Drawing.Size(150, 23)
-        Me.txtNumero.TabIndex = 0
+        txtNumero.Location = New Point(275, 97)
+        txtNumero.Margin = New Padding(5)
+        txtNumero.Name = "txtNumero"
+        txtNumero.Size = New Size(233, 33)
+        txtNumero.TabIndex = 0
         ' 
         ' txtNombre
         ' 
-        Me.txtNombre.Location = New System.Drawing.Point(120, 60)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(150, 23)
-        Me.txtNombre.TabIndex = 1
+        txtNombre.Location = New Point(275, 163)
+        txtNombre.Margin = New Padding(5)
+        txtNombre.Name = "txtNombre"
+        txtNombre.Size = New Size(233, 33)
+        txtNombre.TabIndex = 1
         ' 
         ' txtTipo
         ' 
-        Me.txtTipo.Location = New System.Drawing.Point(120, 100)
-        Me.txtTipo.Name = "txtTipo"
-        Me.txtTipo.Size = New System.Drawing.Size(150, 23)
-        Me.txtTipo.TabIndex = 2
+        txtTipo.Location = New Point(275, 230)
+        txtTipo.Margin = New Padding(5)
+        txtTipo.Name = "txtTipo"
+        txtTipo.Size = New Size(93, 33)
+        txtTipo.TabIndex = 2
         ' 
         ' txtDescubierto
         ' 
-        Me.txtDescubierto.Location = New System.Drawing.Point(120, 140)
-        Me.txtDescubierto.Name = "txtDescubierto"
-        Me.txtDescubierto.Size = New System.Drawing.Size(150, 23)
-        Me.txtDescubierto.TabIndex = 3
+        txtDescubierto.Location = New Point(275, 297)
+        txtDescubierto.Margin = New Padding(5)
+        txtDescubierto.Name = "txtDescubierto"
+        txtDescubierto.Size = New Size(93, 33)
+        txtDescubierto.TabIndex = 3
         ' 
         ' txtMonto
         ' 
-        Me.txtMonto.Location = New System.Drawing.Point(120, 180)
-        Me.txtMonto.Name = "txtMonto"
-        Me.txtMonto.Size = New System.Drawing.Size(150, 23)
-        Me.txtMonto.TabIndex = 4
+        txtMonto.Location = New Point(147, 469)
+        txtMonto.Margin = New Padding(5)
+        txtMonto.Multiline = True
+        txtMonto.Name = "txtMonto"
+        txtMonto.Size = New Size(112, 46)
+        txtMonto.TabIndex = 4
         ' 
         ' lblNumero
         ' 
-        Me.lblNumero.AutoSize = True
-        Me.lblNumero.Location = New System.Drawing.Point(20, 23)
-        Me.lblNumero.Name = "lblNumero"
-        Me.lblNumero.Size = New System.Drawing.Size(52, 15)
-        Me.lblNumero.TabIndex = 5
-        Me.lblNumero.Text = "Número"
+        lblNumero.AutoSize = True
+        lblNumero.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        lblNumero.Location = New Point(71, 97)
+        lblNumero.Margin = New Padding(5, 0, 5, 0)
+        lblNumero.Name = "lblNumero"
+        lblNumero.Size = New Size(86, 25)
+        lblNumero.TabIndex = 5
+        lblNumero.Text = "Número"
         ' 
         ' lblNombre
         ' 
-        Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(20, 63)
-        Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(51, 15)
-        Me.lblNombre.TabIndex = 6
-        Me.lblNombre.Text = "Nombre"
+        lblNombre.AutoSize = True
+        lblNombre.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        lblNombre.Location = New Point(71, 163)
+        lblNombre.Margin = New Padding(5, 0, 5, 0)
+        lblNombre.Name = "lblNombre"
+        lblNombre.Size = New Size(86, 25)
+        lblNombre.TabIndex = 6
+        lblNombre.Text = "Nombre"
         ' 
         ' lblTipo
         ' 
-        Me.lblTipo.AutoSize = True
-        Me.lblTipo.Location = New System.Drawing.Point(20, 103)
-        Me.lblTipo.Name = "lblTipo"
-        Me.lblTipo.Size = New System.Drawing.Size(30, 15)
-        Me.lblTipo.TabIndex = 7
-        Me.lblTipo.Text = "Tipo"
+        lblTipo.AutoSize = True
+        lblTipo.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        lblTipo.Location = New Point(71, 230)
+        lblTipo.Margin = New Padding(5, 0, 5, 0)
+        lblTipo.Name = "lblTipo"
+        lblTipo.Size = New Size(144, 25)
+        lblTipo.TabIndex = 7
+        lblTipo.Text = "Tipo de cuenta"
         ' 
         ' lblDescubierto
         ' 
-        Me.lblDescubierto.AutoSize = True
-        Me.lblDescubierto.Location = New System.Drawing.Point(20, 143)
-        Me.lblDescubierto.Name = "lblDescubierto"
-        Me.lblDescubierto.Size = New System.Drawing.Size(69, 15)
-        Me.lblDescubierto.TabIndex = 8
-        Me.lblDescubierto.Text = "Descubierto"
+        lblDescubierto.AutoSize = True
+        lblDescubierto.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        lblDescubierto.Location = New Point(71, 297)
+        lblDescubierto.Margin = New Padding(5, 0, 5, 0)
+        lblDescubierto.Name = "lblDescubierto"
+        lblDescubierto.Size = New Size(120, 25)
+        lblDescubierto.TabIndex = 8
+        lblDescubierto.Text = "Descubierto"
         ' 
         ' lblMonto
         ' 
-        Me.lblMonto.AutoSize = True
-        Me.lblMonto.Location = New System.Drawing.Point(20, 183)
-        Me.lblMonto.Name = "lblMonto"
-        Me.lblMonto.Size = New System.Drawing.Size(43, 15)
-        Me.lblMonto.TabIndex = 9
-        Me.lblMonto.Text = "Monto"
+        lblMonto.AutoSize = True
+        lblMonto.Location = New Point(83, 476)
+        lblMonto.Margin = New Padding(5, 0, 5, 0)
+        lblMonto.Name = "lblMonto"
+        lblMonto.Size = New Size(23, 25)
+        lblMonto.TabIndex = 9
+        lblMonto.Text = "$"
         ' 
         ' btnAlta
         ' 
-        Me.btnAlta.Location = New System.Drawing.Point(20, 220)
-        Me.btnAlta.Name = "btnAlta"
-        Me.btnAlta.Size = New System.Drawing.Size(75, 23)
-        Me.btnAlta.TabIndex = 10
-        Me.btnAlta.Text = "ALTA"
-        Me.btnAlta.UseVisualStyleBackColor = True
+        btnAlta.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        btnAlta.Location = New Point(630, 97)
+        btnAlta.Margin = New Padding(5)
+        btnAlta.Name = "btnAlta"
+        btnAlta.Size = New Size(124, 91)
+        btnAlta.TabIndex = 10
+        btnAlta.Text = "ALTA"
+        btnAlta.UseVisualStyleBackColor = True
         ' 
         ' btnDepositar
         ' 
-        Me.btnDepositar.Location = New System.Drawing.Point(120, 220)
-        Me.btnDepositar.Name = "btnDepositar"
-        Me.btnDepositar.Size = New System.Drawing.Size(75, 23)
-        Me.btnDepositar.TabIndex = 11
-        Me.btnDepositar.Text = "Depositar"
-        Me.btnDepositar.UseVisualStyleBackColor = True
+        btnDepositar.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        btnDepositar.Location = New Point(377, 469)
+        btnDepositar.Margin = New Padding(5)
+        btnDepositar.Name = "btnDepositar"
+        btnDepositar.Size = New Size(118, 38)
+        btnDepositar.TabIndex = 11
+        btnDepositar.Text = "Depositar"
+        btnDepositar.UseVisualStyleBackColor = True
         ' 
         ' btnExtraer
         ' 
-        Me.btnExtraer.Location = New System.Drawing.Point(220, 220)
-        Me.btnExtraer.Name = "btnExtraer"
-        Me.btnExtraer.Size = New System.Drawing.Size(75, 23)
-        Me.btnExtraer.TabIndex = 12
-        Me.btnExtraer.Text = "Extraer"
-        Me.btnExtraer.UseVisualStyleBackColor = True
+        btnExtraer.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        btnExtraer.Location = New Point(377, 410)
+        btnExtraer.Margin = New Padding(5)
+        btnExtraer.Name = "btnExtraer"
+        btnExtraer.Size = New Size(118, 38)
+        btnExtraer.TabIndex = 12
+        btnExtraer.Text = "Extraer"
+        btnExtraer.UseVisualStyleBackColor = True
         ' 
         ' btnCerrarCuenta
         ' 
-        Me.btnCerrarCuenta.Location = New System.Drawing.Point(320, 220)
-        Me.btnCerrarCuenta.Name = "btnCerrarCuenta"
-        Me.btnCerrarCuenta.Size = New System.Drawing.Size(100, 23)
-        Me.btnCerrarCuenta.TabIndex = 13
-        Me.btnCerrarCuenta.Text = "Cerrar Cuenta"
-        Me.btnCerrarCuenta.UseVisualStyleBackColor = True
+        btnCerrarCuenta.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        btnCerrarCuenta.Location = New Point(630, 242)
+        btnCerrarCuenta.Margin = New Padding(5)
+        btnCerrarCuenta.Name = "btnCerrarCuenta"
+        btnCerrarCuenta.Size = New Size(124, 88)
+        btnCerrarCuenta.TabIndex = 13
+        btnCerrarCuenta.Text = "Cerrar Cuenta"
+        btnCerrarCuenta.UseVisualStyleBackColor = True
+        ' 
+        ' lbl_saldo
+        ' 
+        lbl_saldo.AutoSize = True
+        lbl_saldo.Location = New Point(676, 410)
+        lbl_saldo.Name = "lbl_saldo"
+        lbl_saldo.Size = New Size(50, 25)
+        lbl_saldo.TabIndex = 14
+        lbl_saldo.Text = "0,00"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(594, 410)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(62, 25)
+        Label1.TabIndex = 15
+        Label1.Text = "Saldo"
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(11.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(450, 270)
-        Controls.Add(Me.btnCerrarCuenta)
-        Controls.Add(Me.btnExtraer)
-        Controls.Add(Me.btnDepositar)
-        Controls.Add(Me.btnAlta)
-        Controls.Add(Me.lblMonto)
-        Controls.Add(Me.lblDescubierto)
-        Controls.Add(Me.lblTipo)
-        Controls.Add(Me.lblNombre)
-        Controls.Add(Me.lblNumero)
-        Controls.Add(Me.txtMonto)
-        Controls.Add(Me.txtDescubierto)
-        Controls.Add(Me.txtTipo)
-        Controls.Add(Me.txtNombre)
-        Controls.Add(Me.txtNumero)
+        ClientSize = New Size(1348, 645)
+        Controls.Add(Label1)
+        Controls.Add(lbl_saldo)
+        Controls.Add(btnCerrarCuenta)
+        Controls.Add(btnExtraer)
+        Controls.Add(btnDepositar)
+        Controls.Add(btnAlta)
+        Controls.Add(lblMonto)
+        Controls.Add(lblDescubierto)
+        Controls.Add(lblTipo)
+        Controls.Add(lblNombre)
+        Controls.Add(lblNumero)
+        Controls.Add(txtMonto)
+        Controls.Add(txtDescubierto)
+        Controls.Add(txtTipo)
+        Controls.Add(txtNombre)
+        Controls.Add(txtNumero)
+        Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        Margin = New Padding(5)
         Name = "Form1"
         Text = "Gestión de Cuenta Bancaria"
         ResumeLayout(False)
@@ -193,4 +240,6 @@ Partial Class Form1
     Friend WithEvents btnDepositar As Button
     Friend WithEvents btnExtraer As Button
     Friend WithEvents btnCerrarCuenta As Button
+    Friend WithEvents lbl_saldo As Label
+    Friend WithEvents Label1 As Label
 End Class
