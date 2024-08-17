@@ -1,18 +1,18 @@
 ﻿Public Class Cuenta
     ' Constante de descubierto máximo
-    Private Const DescMaximo As Integer = 50000
+    Private Const DescMaximo As Double = 50000
 
     ' Atributos privados de la clase
-    Private AP_Numero As Integer
+    Private AP_Numero As Double
     Private AP_Nombre As String
     Private AP_Tipo As String
-    Private AP_Saldo As Integer
-    Private AP_Descubierto As Integer
+    Private AP_Saldo As Double
+    Private AP_Descubierto As Double
 
     ' Constructor de la clase
-    Public Sub New(ByVal numero As Integer, ByVal nombre As String, ByVal tipo As String, ByVal descubierto As Integer)
+    Public Sub New(ByVal numero As Double, ByVal nombre As String, ByVal tipo As String, ByVal descubierto As Double)
         Me.AP_Numero = numero
-        Me.AP_Nombre = nombre.Substring(0, Math.Min(nombre.Length, 15)) ' Limitar a 15 caracteres
+        Me.AP_Nombre = Left(nombre, 15) ' Limitar a 15 caracteres
         Me.AP_Tipo = tipo
 
         ' Validación del descubierto según el tipo de cuenta
@@ -32,11 +32,11 @@
     End Sub
 
     ' Propiedades para acceder a los atributos
-    Public Property Numero() As Integer
+    Public Property Numero() As Double
         Get
             Return AP_Numero
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As Double)
             AP_Numero = value
         End Set
     End Property
@@ -59,17 +59,17 @@
         End Set
     End Property
 
-    Public ReadOnly Property Saldo() As Integer
+    Public ReadOnly Property Saldo() As Double
         Get
             Return AP_Saldo
         End Get
     End Property
 
-    Public Property Descubierto() As Integer
+    Public Property Descubierto() As Double
         Get
             Return AP_Descubierto
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As Double)
             If AP_Tipo = "CC" Then
                 AP_Descubierto = Math.Min(value, DescMaximo)
             ElseIf AP_Tipo = "CA" Then
@@ -79,7 +79,7 @@
     End Property
 
     ' Métodos de la clase
-    Public Sub Depositar(ByVal valor As Integer)
+    Public Sub Depositar(ByVal valor As Double)
         If valor > 0 Then
             AP_Saldo += valor
         Else
@@ -87,7 +87,7 @@
         End If
     End Sub
 
-    Public Function Extraer(ByVal valor As Integer) As Boolean
+    Public Function Extraer(ByVal valor As Double) As Boolean
         If valor > 0 Then
             If AP_Saldo + AP_Descubierto >= valor Then
                 AP_Saldo -= valor

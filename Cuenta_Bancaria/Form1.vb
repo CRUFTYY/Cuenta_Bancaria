@@ -3,13 +3,18 @@
 
     Private Sub btnAlta_Click(sender As Object, e As EventArgs) Handles btnAlta.Click
         Try
-            Dim numero As Integer = Integer.Parse(txtNumero.Text)
+            Dim numero As Double = Double.Parse(txtNumero.Text)
             Dim nombre As String = txtNombre.Text
             Dim tipo As String = txtTipo.Text.ToUpper()
-            Dim descubierto As Integer = Integer.Parse(txtDescubierto.Text)
+            Dim descubierto As Double = Double.Parse(txtDescubierto.Text)
 
             cuenta = New Cuenta(numero, nombre, tipo, descubierto)
-            MessageBox.Show("Cuenta creada exitosamente.")
+            MessageBox.Show($"Cuenta creada exitosamente.{vbCrLf} 
+            Numero: {cuenta.Numero}           {vbCrLf} 
+            nombre: {cuenta.Nombre}           {vbCrLf}
+            Tipo de cuenta: {cuenta.Tipo}     {vbCrLf} 
+            descubierto: {cuenta.Descubierto} {vbCrLf} ")
+
             txtMonto.Enabled = True
             btnExtraer.Enabled = True
             btnDepositar.Enabled = True
@@ -22,7 +27,7 @@
 
     Private Sub btnDepositar_Click(sender As Object, e As EventArgs) Handles btnDepositar.Click
         Try
-            Dim monto As Integer = Integer.Parse(txtMonto.Text)
+            Dim monto As Double = Double.Parse(txtMonto.Text)
             cuenta.Depositar(monto)
             MessageBox.Show("Depósito realizado exitosamente. Saldo actual: " & cuenta.Saldo)
             lbl_saldo.Text = cuenta.Saldo.ToString("N2")
@@ -33,7 +38,7 @@
 
     Private Sub btnExtraer_Click(sender As Object, e As EventArgs) Handles btnExtraer.Click
         Try
-            Dim monto As Integer = Integer.Parse(txtMonto.Text)
+            Dim monto As Double = Double.Parse(txtMonto.Text)
             If cuenta.Extraer(monto) Then
                 MessageBox.Show("Extracción realizada exitosamente. Saldo actual: " & cuenta.Saldo)
                 lbl_saldo.Text = cuenta.Saldo.ToString("N2")
@@ -70,4 +75,25 @@
     Private Sub txtMonto_TextChanged(sender As Object, e As EventArgs) Handles txtMonto.TextChanged
 
     End Sub
+
+    Private Sub txtNumero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumero.KeyPress
+        ' Verificar si el carácter presionado es un número o la tecla de retroceso (para permitir borrar)
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            ' Si no es un número ni una tecla de control (como la tecla de borrar), cancelar el evento
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtDescubierto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDescubierto.KeyPress
+        ' Permitir solo números, la tecla de retroceso y un único punto o coma decimal
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar <> "." AndAlso e.KeyChar <> "," Then
+            e.Handled = True
+        End If
+
+        ' Asegurarse de que solo se permita un único punto o coma decimal
+        If (e.KeyChar = "." OrElse e.KeyChar = ",") AndAlso (CType(sender, TextBox).Text.Contains(".") OrElse CType(sender, TextBox).Text.Contains(",")) Then
+            e.Handled = True
+        End If
+    End Sub
+
 End Class
