@@ -63,6 +63,8 @@
         btnExtraer.Enabled = False
         btnDepositar.Enabled = False
         btnCerrarCuenta.Enabled = False
+
+
     End Sub
 
     Private Sub txtMonto_TextChanged(sender As Object, e As EventArgs) Handles txtMonto.TextChanged
