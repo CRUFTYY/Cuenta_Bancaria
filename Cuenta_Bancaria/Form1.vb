@@ -53,7 +53,10 @@
     Private Sub btnCerrarCuenta_Click(sender As Object, e As EventArgs) Handles btnCerrarCuenta.Click
         Try
             If cuenta.Extraer() Then
+
                 MessageBox.Show("Cuenta cerrada exitosamente.")
+
+                System.Threading.Thread.Sleep(1500)
                 Application.Exit() ' Cierra el programa al cerrar la cuenta
             Else
                 MessageBox.Show("No se puede cerrar la cuenta con saldo negativo.")
@@ -72,8 +75,16 @@
 
     End Sub
 
-    Private Sub txtMonto_TextChanged(sender As Object, e As EventArgs) Handles txtMonto.TextChanged
+    Private Sub txtMonto_TextChanged(sender As Object, e As KeyPressEventArgs) Handles txtMonto.TextChanged
+        ' Permitir solo números, la tecla de retroceso y un único punto o coma decimal
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar <> "." AndAlso e.KeyChar <> "," Then
+            e.Handled = True
+        End If
 
+        ' Asegurarse de que solo se permita un único punto o coma decimal
+        If (e.KeyChar = "." OrElse e.KeyChar = ",") AndAlso (CType(sender, TextBox).Text.Contains(".") OrElse CType(sender, TextBox).Text.Contains(",")) Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub txtNumero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumero.KeyPress

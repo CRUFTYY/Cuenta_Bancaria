@@ -71,7 +71,11 @@
         End Get
         Set(ByVal value As Double)
             If AP_Tipo = "CC" Then
-                AP_Descubierto = Math.Min(value, DescMaximo)
+                If value > DescMaximo Then
+                    AP_Descubierto = DescMaximo
+                Else
+                    AP_Descubierto = value
+                End If
             ElseIf AP_Tipo = "CA" Then
                 AP_Descubierto = 0
             End If
