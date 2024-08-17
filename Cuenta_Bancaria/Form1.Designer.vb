@@ -38,10 +38,13 @@ Partial Class Form1
         btnCerrarCuenta = New Button()
         lbl_saldo = New Label()
         Label1 = New Label()
+        Label2 = New Label()
         SuspendLayout()
         ' 
         ' txtNumero
         ' 
+        txtNumero.BackColor = SystemColors.ActiveCaptionText
+        txtNumero.ForeColor = SystemColors.Info
         txtNumero.Location = New Point(275, 97)
         txtNumero.Margin = New Padding(5)
         txtNumero.Name = "txtNumero"
@@ -50,6 +53,8 @@ Partial Class Form1
         ' 
         ' txtNombre
         ' 
+        txtNombre.BackColor = SystemColors.ActiveCaptionText
+        txtNombre.ForeColor = SystemColors.Info
         txtNombre.Location = New Point(275, 163)
         txtNombre.Margin = New Padding(5)
         txtNombre.Name = "txtNombre"
@@ -58,6 +63,8 @@ Partial Class Form1
         ' 
         ' txtTipo
         ' 
+        txtTipo.BackColor = SystemColors.ActiveCaptionText
+        txtTipo.ForeColor = SystemColors.Info
         txtTipo.Location = New Point(275, 230)
         txtTipo.Margin = New Padding(5)
         txtTipo.Name = "txtTipo"
@@ -66,6 +73,8 @@ Partial Class Form1
         ' 
         ' txtDescubierto
         ' 
+        txtDescubierto.BackColor = SystemColors.ActiveCaptionText
+        txtDescubierto.ForeColor = SystemColors.Info
         txtDescubierto.Location = New Point(275, 297)
         txtDescubierto.Margin = New Padding(5)
         txtDescubierto.Name = "txtDescubierto"
@@ -74,7 +83,9 @@ Partial Class Form1
         ' 
         ' txtMonto
         ' 
-        txtMonto.Location = New Point(147, 469)
+        txtMonto.BackColor = SystemColors.ActiveCaptionText
+        txtMonto.ForeColor = SystemColors.Info
+        txtMonto.Location = New Point(116, 469)
         txtMonto.Margin = New Padding(5)
         txtMonto.Multiline = True
         txtMonto.Name = "txtMonto"
@@ -84,124 +95,153 @@ Partial Class Form1
         ' lblNumero
         ' 
         lblNumero.AutoSize = True
-        lblNumero.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        lblNumero.Location = New Point(71, 97)
+        lblNumero.BackColor = SystemColors.ActiveCaptionText
+        lblNumero.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        lblNumero.Location = New Point(82, 100)
         lblNumero.Margin = New Padding(5, 0, 5, 0)
         lblNumero.Name = "lblNumero"
-        lblNumero.Size = New Size(86, 25)
+        lblNumero.Size = New Size(95, 26)
         lblNumero.TabIndex = 5
         lblNumero.Text = "Número"
         ' 
         ' lblNombre
         ' 
         lblNombre.AutoSize = True
-        lblNombre.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        lblNombre.Location = New Point(71, 163)
+        lblNombre.BackColor = SystemColors.ActiveCaptionText
+        lblNombre.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        lblNombre.Location = New Point(82, 166)
         lblNombre.Margin = New Padding(5, 0, 5, 0)
         lblNombre.Name = "lblNombre"
-        lblNombre.Size = New Size(86, 25)
+        lblNombre.Size = New Size(95, 26)
         lblNombre.TabIndex = 6
         lblNombre.Text = "Nombre"
         ' 
         ' lblTipo
         ' 
         lblTipo.AutoSize = True
-        lblTipo.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        lblTipo.Location = New Point(71, 230)
+        lblTipo.BackColor = SystemColors.ActiveCaptionText
+        lblTipo.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        lblTipo.Location = New Point(82, 233)
         lblTipo.Margin = New Padding(5, 0, 5, 0)
         lblTipo.Name = "lblTipo"
-        lblTipo.Size = New Size(144, 25)
+        lblTipo.Size = New Size(163, 26)
         lblTipo.TabIndex = 7
         lblTipo.Text = "Tipo de cuenta"
         ' 
         ' lblDescubierto
         ' 
         lblDescubierto.AutoSize = True
-        lblDescubierto.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        lblDescubierto.Location = New Point(71, 297)
+        lblDescubierto.BackColor = SystemColors.ActiveCaptionText
+        lblDescubierto.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        lblDescubierto.Location = New Point(82, 300)
         lblDescubierto.Margin = New Padding(5, 0, 5, 0)
         lblDescubierto.Name = "lblDescubierto"
-        lblDescubierto.Size = New Size(120, 25)
+        lblDescubierto.Size = New Size(135, 26)
         lblDescubierto.TabIndex = 8
         lblDescubierto.Text = "Descubierto"
         ' 
         ' lblMonto
         ' 
         lblMonto.AutoSize = True
-        lblMonto.Location = New Point(83, 476)
+        lblMonto.BackColor = SystemColors.ActiveCaptionText
+        lblMonto.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        lblMonto.Location = New Point(82, 478)
         lblMonto.Margin = New Padding(5, 0, 5, 0)
         lblMonto.Name = "lblMonto"
-        lblMonto.Size = New Size(23, 25)
+        lblMonto.Size = New Size(24, 26)
         lblMonto.TabIndex = 9
         lblMonto.Text = "$"
         ' 
         ' btnAlta
         ' 
-        btnAlta.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        btnAlta.Location = New Point(630, 97)
+        btnAlta.BackColor = SystemColors.ActiveCaptionText
+        btnAlta.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        btnAlta.Location = New Point(641, 100)
         btnAlta.Margin = New Padding(5)
         btnAlta.Name = "btnAlta"
         btnAlta.Size = New Size(124, 91)
         btnAlta.TabIndex = 10
         btnAlta.Text = "ALTA"
-        btnAlta.UseVisualStyleBackColor = True
+        btnAlta.UseVisualStyleBackColor = False
         ' 
         ' btnDepositar
         ' 
-        btnDepositar.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        btnDepositar.Location = New Point(377, 469)
+        btnDepositar.BackColor = SystemColors.ActiveCaptionText
+        btnDepositar.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        btnDepositar.Location = New Point(388, 472)
         btnDepositar.Margin = New Padding(5)
         btnDepositar.Name = "btnDepositar"
         btnDepositar.Size = New Size(118, 38)
         btnDepositar.TabIndex = 11
         btnDepositar.Text = "Depositar"
-        btnDepositar.UseVisualStyleBackColor = True
+        btnDepositar.UseVisualStyleBackColor = False
         ' 
         ' btnExtraer
         ' 
-        btnExtraer.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        btnExtraer.Location = New Point(377, 410)
+        btnExtraer.BackColor = SystemColors.ActiveCaptionText
+        btnExtraer.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        btnExtraer.Location = New Point(388, 413)
         btnExtraer.Margin = New Padding(5)
         btnExtraer.Name = "btnExtraer"
         btnExtraer.Size = New Size(118, 38)
         btnExtraer.TabIndex = 12
         btnExtraer.Text = "Extraer"
-        btnExtraer.UseVisualStyleBackColor = True
+        btnExtraer.UseVisualStyleBackColor = False
         ' 
         ' btnCerrarCuenta
         ' 
-        btnCerrarCuenta.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
-        btnCerrarCuenta.Location = New Point(630, 242)
+        btnCerrarCuenta.BackColor = SystemColors.ActiveCaptionText
+        btnCerrarCuenta.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        btnCerrarCuenta.ForeColor = SystemColors.Control
+        btnCerrarCuenta.Location = New Point(641, 245)
         btnCerrarCuenta.Margin = New Padding(5)
         btnCerrarCuenta.Name = "btnCerrarCuenta"
         btnCerrarCuenta.Size = New Size(124, 88)
         btnCerrarCuenta.TabIndex = 13
         btnCerrarCuenta.Text = "Cerrar Cuenta"
-        btnCerrarCuenta.UseVisualStyleBackColor = True
+        btnCerrarCuenta.UseVisualStyleBackColor = False
         ' 
         ' lbl_saldo
         ' 
         lbl_saldo.AutoSize = True
-        lbl_saldo.Location = New Point(676, 410)
+        lbl_saldo.BackColor = SystemColors.ActiveCaptionText
+        lbl_saldo.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        lbl_saldo.Location = New Point(734, 413)
         lbl_saldo.Name = "lbl_saldo"
-        lbl_saldo.Size = New Size(50, 25)
+        lbl_saldo.Size = New Size(54, 26)
         lbl_saldo.TabIndex = 14
         lbl_saldo.Text = "0,00"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(594, 410)
+        Label1.BackColor = SystemColors.ActiveCaptionText
+        Label1.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        Label1.Location = New Point(613, 414)
         Label1.Name = "Label1"
-        Label1.Size = New Size(62, 25)
+        Label1.Size = New Size(69, 26)
         Label1.TabIndex = 15
         Label1.Text = "Saldo"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.BackColor = SystemColors.ActiveCaptionText
+        Label2.Font = New Font("Times New Roman", 18.0F, FontStyle.Bold)
+        Label2.Location = New Point(702, 413)
+        Label2.Margin = New Padding(5, 0, 5, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(24, 26)
+        Label2.TabIndex = 16
+        Label2.Text = "$"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(11.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.ActiveCaptionText
         ClientSize = New Size(1348, 645)
+        Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(lbl_saldo)
         Controls.Add(btnCerrarCuenta)
@@ -219,6 +259,7 @@ Partial Class Form1
         Controls.Add(txtNombre)
         Controls.Add(txtNumero)
         Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        ForeColor = SystemColors.ControlLightLight
         Margin = New Padding(5)
         Name = "Form1"
         Text = "Gestión de Cuenta Bancaria"
@@ -242,4 +283,5 @@ Partial Class Form1
     Friend WithEvents btnCerrarCuenta As Button
     Friend WithEvents lbl_saldo As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

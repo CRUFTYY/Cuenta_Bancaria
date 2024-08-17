@@ -25,7 +25,7 @@
             Dim monto As Integer = Integer.Parse(txtMonto.Text)
             cuenta.Depositar(monto)
             MessageBox.Show("Depósito realizado exitosamente. Saldo actual: " & cuenta.Saldo)
-            lbl_saldo.Text = cuenta.Saldo.ToString("F2")
+            lbl_saldo.Text = cuenta.Saldo.ToString("N2")
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
@@ -36,7 +36,7 @@
             Dim monto As Integer = Integer.Parse(txtMonto.Text)
             If cuenta.Extraer(monto) Then
                 MessageBox.Show("Extracción realizada exitosamente. Saldo actual: " & cuenta.Saldo)
-                lbl_saldo.Text = cuenta.Saldo.ToString("F2")
+                lbl_saldo.Text = cuenta.Saldo.ToString("N2")
             Else
                 MessageBox.Show("Fondos insuficientes para la extracción.")
             End If
