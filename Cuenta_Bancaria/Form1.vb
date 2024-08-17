@@ -75,14 +75,9 @@
 
     End Sub
 
-    Private Sub txtMonto_TextChanged(sender As Object, e As KeyPressEventArgs) Handles txtMonto.TextChanged
-        ' Permitir solo números, la tecla de retroceso y un único punto o coma decimal
-        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar <> "." AndAlso e.KeyChar <> "," Then
-            e.Handled = True
-        End If
-
-        ' Asegurarse de que solo se permita un único punto o coma decimal
-        If (e.KeyChar = "." OrElse e.KeyChar = ",") AndAlso (CType(sender, TextBox).Text.Contains(".") OrElse CType(sender, TextBox).Text.Contains(",")) Then
+    Private Sub txtMonto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMonto.KeyPress
+        ' Permitir solo números, comas, puntos y el carácter de control (como backspace)
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "."c AndAlso e.KeyChar <> ","c AndAlso Not Char.IsControl(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
