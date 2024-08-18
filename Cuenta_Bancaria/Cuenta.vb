@@ -15,7 +15,7 @@
         Me.AP_Nombre = Left(nombre, 15) ' Limitar a 15 caracteres
         Me.AP_Tipo = tipo
 
-        ' Validación del descubierto según el tipo de cuenta
+        ' validar el descubierto dependiendo del el tipo de cuenta
         If tipo = "CA" Then
             Me.AP_Descubierto = 0
         ElseIf tipo = "CC" Then
@@ -82,7 +82,7 @@
         End Set
     End Property
 
-    ' Métodos de la clase
+    ' Métodos
     Public Sub Depositar(ByVal valor As Double)
         If valor > 0 Then
             AP_Saldo += valor

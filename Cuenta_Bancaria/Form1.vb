@@ -9,7 +9,8 @@
             Dim descubierto As Double = Double.Parse(txtDescubierto.Text)
 
             cuenta = New Cuenta(numero, nombre, tipo, descubierto)
-            MessageBox.Show($"Cuenta creada exitosamente.{vbCrLf} 
+            MessageBox.Show($"
+            Cuenta creada exitosamente.       {vbCrLf} 
             Numero: {cuenta.Numero}           {vbCrLf} 
             nombre: {cuenta.Nombre}           {vbCrLf}
             Tipo de cuenta: {cuenta.Tipo}     {vbCrLf} 
@@ -52,10 +53,10 @@
 
     Private Sub btnCerrarCuenta_Click(sender As Object, e As EventArgs) Handles btnCerrarCuenta.Click
         Try
+
             If cuenta.Extraer() Then
-
+                lbl_saldo.Text = cuenta.Saldo
                 MessageBox.Show("Cuenta cerrada exitosamente.")
-
                 System.Threading.Thread.Sleep(1500)
                 Application.Exit() ' Cierra el programa al cerrar la cuenta
             Else
